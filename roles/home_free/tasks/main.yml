@@ -1,0 +1,12 @@
+---
+- name: df -h
+  shell: df -h
+  register: freespace
+
+- name: show free space
+  debug:
+    msg: "{{ freespace.stdout }}"
+
+- name: show free space on /
+  debug:
+    msg: "{{ freespace.stdout | get_free_space }}"

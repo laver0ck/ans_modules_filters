@@ -1,0 +1,10 @@
+---
+- name: get conf files from /etc
+  get_files:
+    path: "/etc/"
+    mask: "*.conf"
+  register: result
+
+- name: show result
+  debug:
+    msg: "{{ result.files }}"
